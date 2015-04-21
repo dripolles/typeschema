@@ -36,7 +36,7 @@ class Checker(object):
                 See the jsonschema documentation for validate.
         """
 
-        if "to_validate" in dir(value):
+        if hasattr(value, "to_validate"):
             value = value.to_validate()
 
         self._validator(schema).validate(value)
